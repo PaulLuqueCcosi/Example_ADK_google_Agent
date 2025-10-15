@@ -4,22 +4,71 @@ Este repositorio contiene ejemplos de agentes desarrollados con el **Google Agen
 
 ## Inicio Rápido
 
+### Configuración paso a paso (después de descargar el repositorio)
+
+#### 1. Navegar al directorio del proyecto
 ```bash
-# 1. Instalar Google ADK
-pip install google-adk
+cd agentes-google-adk
+```
 
-# 2. Clonar e instalar dependencias
-git clone <url-del-repositorio>
-cd <nombre-del-proyecto>
+#### 2. Crear entorno virtual
+
+**En Windows:**
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+**En macOS/Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+#### 3. Instalar dependencias
+```bash
 pip install -r requirements.txt
+```
 
-# 3. Configurar API Key
+#### 4. Configurar API Key de Google
+
+**Paso 4.1: Obtener la API Key**
+- Ve a [Google AI Studio](https://aistudio.google.com/app/api-keys)
+- Inicia sesión y crea una nueva API Key
+- Copia la API Key generada
+
+**Paso 4.2: Configurar archivo .env**
+
+**En Windows:**
+```cmd
+copy .env.example .env
+notepad .env
+```
+
+**En macOS/Linux:**
+```bash
 cp .env.example .env
-# Edita .env y agrega tu API key de https://aistudio.google.com/app/api-keys
+nano .env
+```
 
-# 4. Ejecutar la interfaz web
+**Paso 4.3: Editar el archivo .env**
+Reemplaza `tu_api_key_aqui` con tu API Key real:
+```env
+GOOGLE_API_KEY=AIzaSy...tu_api_key_real_aqui
+GOOGLE_GENAI_USE_VERTEXAI=FALSE
+```
+
+#### 5. Verificar instalación
+```bash
+adk --version
+```
+
+#### 6. Ejecutar la interfaz web
+```bash
 adk web
 ```
+
+¡Listo! Ahora puedes interactuar con los agentes desde tu navegador.
 
 ## ¿Qué es Google ADK?
 
